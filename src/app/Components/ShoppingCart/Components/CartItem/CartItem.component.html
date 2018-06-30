@@ -1,0 +1,48 @@
+<div class="row pt-2">
+
+  <div class="col-sm-3 col-md-3 align-self-center">
+    <img src="{{this.profile.item.poster}}" class="w-100">
+  </div>
+  
+  <div class="col-sm-9 col-md-9">
+    <div class="row align-items-center">
+      <p><strong>{{this.profile.item.title}} ({{this.profile.item.getYear()}})</strong></p>
+    </div>
+    <!-- Details Row -->
+    <div class="row align-items-center">
+      <!-- Price Column -->
+      <div class="col-sm-4 col-md-4 align-self-center">
+        <p class="text-center"><strong>Price:</strong><br>${{this.profile.item.price}}</p>
+      </div>
+      <!-- Quantity Column -->
+      <div class="col-sm-4 col-md-4 align-self-center">
+        <!-- Input Row -->
+        <div class="row align-items-center">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-btn">
+                <a type="button" class="btn btn-primary btn-sm waves-light" (click)="this.updateQuantity(-1)" mdbWavesEffect><i class="fa fa-minus white-text"></i></a>
+              </span>
+            </div>
+            <input #amountInput type="number" value="{{this.profile.quantity}}" style="width:50px; text-align: center;">
+            <div class="input-group-append">
+              <span class="input-group-btn">
+                <a type="button" class="btn btn-primary btn-sm waves-light" (click)="this.updateQuantity(1)" mdbWavesEffect><i class="fa fa-plus white-text"></i></a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Input Row -->
+      </div>
+      <!-- Total Column -->
+      <div class="col-sm-4 col-md-4 align-self-center">
+        <p class="text-center"><strong>Total:</strong><br>${{this.profile.total}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <p>Added: {{this.profile.added}}</p>
+      </div>
+    </div>
+  </div>
+</div>

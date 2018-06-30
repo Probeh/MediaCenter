@@ -1,0 +1,25 @@
+<ng-container *ngIf="this.displayAs == 0; then profile; else details" class="content"></ng-container>
+
+<ng-template #details>
+  <div class="w-100">
+    <div class="row">
+
+      <div class="d-none d-md-block d-lg-block col-md-2 col-lg-4">
+        <img src="{{this.movie.poster}}" class="w-100" (click)="this.closeModal()">
+      </div>
+
+      <div class="col-sm-12 col-md-10 col-lg-8">
+        <h2 class="text-center white-text">{{this.movie.title}} ({{this.movie.getYear()}})</h2>
+        <div class="overview pt-2">
+          <p class="white-text">Released: {{this.movie.getDate().toDateString()}}</p>
+          <p class="white-text">{{this.movie.getShortText()}}</p>
+        </div>
+        <a (click)="purchaseItem()" type="button" class="btn btn-deep-purple waves-light" mdbWavesEffect>
+          <i class="fa fa-shopping-cart"></i>&nbsp; Buy Now (${{this.movie.price}})</a>
+      </div>
+
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #profile></ng-template>

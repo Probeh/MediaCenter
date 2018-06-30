@@ -1,0 +1,54 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark orange darken-3 w-100" [containerInside]="false">
+  <logo>
+      <a routerLink="/Home" class="navbar-brand" href=""><i class="fa fa-film"></i>&nbsp;MoveCenter</a>
+  </logo>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/Home" class="nav-link waves-light" mdbWavesEffect><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/Movies" class="nav-link waves-light" mdbWavesEffect><i class="fa fa-film"></i> Movies <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" mdbWavesEffect><i class="fa fa-film"></i> Trailers <span class="sr-only"></span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav" (mouseenter)="this.setPosition(true)" (mouseleave)="this.setPosition(false)">
+      <li class="nav-item dropdown btn-group" dropdown #shopDropdown="bs-dropdown">
+        <a type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)="shopDropdown.toggle()">
+          <i class="fa fa-shopping-cart"></i> Shopping Cart ({{this.cartItems()}})</a>
+        <div *dropdownMenu class="dropdown-menu shopping-menu dropdown dropdown-primary" role="menu">
+          <div class="shopping-list pt-2"><app-CartList></app-CartList></div>
+          <div *ngIf="this.cartItems() > 0">
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="this.clearCart()"><i class="fa fa-trash"></i>&nbsp; Clear Items</a>    
+            <a routerLink="/ShoppingCart" class="dropdown-item waves-light" mdbWavesEffect (click)="shopDropdown.toggle()"><i class="fa fa-shopping-cart"></i>&nbsp; View Order ({{this.cartItems()}} Items)</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown btn-group" dropdown #userDropdown="bs-dropdown">
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          <i class="fa fa-user"></i> Account <span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary animated fadeIn" role="menu">
+          <a routerLink="/Account" routerLinkActive="active" class="dropdown-item waves-light" mdbWavesEffect>Login</a>
+          <a routerLink="/Account" routerLinkActive="active" class="dropdown-item waves-light" mdbWavesEffect>Register</a>
+          <a routerLink="/Account" routerLinkActive="active" class="dropdown-item waves-light" mdbWavesEffect>Logout</a>
+          <div class="divider dropdown-divider"></div>
+          <a routerLink="/Account" routerLinkActive="active" class="dropdown-item waves-light" mdbWavesEffect><img src="https://intellihr.com.au/wp-content/uploads/2017/06/avatar_placeholder_temporary.png" style="width: 25px;"> My Account</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link"><i class="fa fa-instagram"></i></a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>

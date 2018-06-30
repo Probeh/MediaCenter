@@ -1,0 +1,57 @@
+<ng-template *ngIf="this.itemList.length == 0; then cartEmpty; else showCart"></ng-template>
+
+<ng-template #showCart>
+  <ng-template *ngIf="this.display == 0; then cartShort; else cartFull"></ng-template>
+</ng-template>
+
+<ng-template #cartEmpty>
+  <div class="text-center animated fadeIn pt-5">
+    <h1 class="animated bounceInDown">Your Cart Is Empty</h1>
+    <img class="cartLogo pt-4 animated bounceInLeft" src="https://checkout.advancedshippingmanager.com/wp-content/uploads/2015/10/Cart-Icon-PNG-Graphic-Cave-e1461785088730-300x300.png">
+  </div>
+</ng-template>
+
+<ng-template #cartShort>
+  <table class="table table-striped table-hover w-100 animated fadeIn">
+    <tbody>
+      <tr *ngFor="let item of this.itemList" class="animated bounceInRight">
+        <app-CartItem [profile]=item></app-CartItem>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #cartFull>
+  <table class="table table-dark table-striped table-hover text-center w-100 pt-4" (mouseenter)="this.setPosition(true)" (mouseleave)="this.setPosition(false)">
+    <thead class="thead-default">
+      <tr>
+        <th>#</th>
+        <!-- Product Index -->
+        <th></th>
+        <!-- Poster (Empty) -->
+        <th>Title</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Total</th>
+        <th></th>
+        <!-- Remove (Empty) -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of this.itemList; let id = index">
+        <td>{{id + 1}}</td>
+        <td>
+          <img src="{{product.item.poster}}" style="width: 100px;">
+        </td>
+        <td>{{product.item.title}}</td>
+        <td>${{product.item.price}}</td>
+        <td><input #amount type="number" value="{{product.quantity}}" min="1" max="9" (change)="this.updateQuantity(product, amount.value)"></td>
+        <td>${{product.total}}</td>
+        <td>
+          <a class="btn btn-sm btn-danger waves-light" (click)="removeItem(product)" mdbWavesEffect>&nbsp;
+            <i class="fa fa-trash"></i>&nbsp;</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

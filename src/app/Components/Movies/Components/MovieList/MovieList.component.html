@@ -1,0 +1,51 @@
+<div class="row w-100">
+
+  <div class="col-lg-3 col-md-4">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item header d-flex justify-content-between align-items-center" mdbWavesEffect (click)="this.filterMovies()">All Categories
+          <span class="badge badge-pill">{{this.getMovieCount()}}</span>
+        </li>
+        <li *ngFor="let item of this.genreList" class="list-group-item d-flex justify-content-between align-items-center" mdbWavesEffect
+          (click)="this.filterMovies(item.name)">
+          {{item.name}}
+          <span class="badge badge-pill">{{this.getMovieCount(item.name)}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-9 col-md-8">
+    <div class="row pt-2">
+      <div *ngFor="let movie of this.movieList" class="col-lg-2 col-md-4 pb-2">
+        <div class="movieItem view zoom overlay waves-light" (click)="this.showSelection.emit(movie)" mdbWavesEffect>
+          <img src="{{movie.poster}}" class="movieThumb img-fluid" alt="">
+          <div class="mask flex-center rgba-black-strong">
+            <h4>
+              <i class="fa fa-search"></i>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div mdbModal #movieModal="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="heading lead">
+          <i class="fa fa-film"></i>&nbsp; Movie Preview</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="movieModal.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+      <div class="modal-body white-text">
+        <app-Movie [movie]="this.selection" [displayAs]=1 (dispose)="movieModal.hide()"></app-Movie>
+      </div>
+    </div>
+  </div>
+</div>

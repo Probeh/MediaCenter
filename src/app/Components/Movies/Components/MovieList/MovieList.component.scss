@@ -1,0 +1,36 @@
+.list-group {
+  position: relative;
+  display: block;
+  margin: 0 auto !important;
+  padding: 10px;
+  width: 100%;
+}
+.list-group-item {
+  color: white !important;
+  cursor: pointer;
+  background: #2E2E2E !important;
+  border: none;
+}
+.list-group-item.header {
+  background: #424242 !important;
+}
+.list-group-item:hover {
+  background: #616161 !important;
+}
+
+.movieItem {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.movieItem:hover {
+  cursor: pointer;
+}
+.movieThumb {
+  width: 100%;
+  border-radius: 10%;
+}
+
+.modal-content {
+  background: #212121 !important;
+}
