@@ -1,6 +1,14 @@
 # MediaCenter
 
+Try It Yourself Online: [http://mediacenter-4283f.firebaseapp.com](http://mediacenter-4283f.firebaseapp.com)
+
+![](https://github.com/YoniProbeh/MediaCenter/blob/master/src/img/overview-min.gif?raw=true)
+
+=================================================================================
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+
+# Project Setup
 
 ## 1. Install Node Dependencies
 
