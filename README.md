@@ -2,13 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Install Node Packages
+## 1. Install Node Packages
 
 ![](https://github.com/YoniProbeh/MediaCenter/blob/master/src/img/install-min.gif?raw=true)
 
-## Run The Application
+## 2. Run The Application
 
 ![](https://github.com/YoniProbeh/MediaCenter/blob/master/src/img/serve-min.gif?raw=true)
+
+===================================================================================================
 
 ## Development server
 
