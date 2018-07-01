@@ -19,10 +19,6 @@ export class MovieService {
     for (let index = 1; index <= 30; index++) { this.getMovies(index).then(() => this.movieList.emit(this.movies.slice())); }
   }
 
-  private getKey(): string {
-    return '7c8354e84c1c7e63a12dcb27ee8c8c37';
-  }
-
   //#region Private Methods For Retrieving Data From API via HttpGet Methods
   private getGenres(): Promise<any> {
     return this.http.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.getKey()}&language=en-US`)
@@ -37,7 +33,7 @@ export class MovieService {
       .catch(error => console.log(error));
   }
   private getMovies(page: number = 1): Promise<any> {
-    return this.http.get(`https://api.themoviedb.org/3/discover/movie?api_key=7c8354e84c1c7e63a12dcb27ee8c8c37&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)
+    return this.http.get(`https://api.themoviedb.org/3/discover/movie?api_key=${this.getKey()}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
       .toPromise()
       .then((result: Response) => {
         result.json().results.forEach(element => {
@@ -95,6 +91,10 @@ export class MovieService {
   private getVideoUrl(videoKey: string): string {
     return `https://www.youtube.com/watch?v=${videoKey}`;
   }
+  private getKey(): string {
+    return '7c8354e84c1c7e63a12dcb27ee8c8c37';
+  }
+
   //#endregion
 
   //#region Public Methods For Retrieving Data From Local Service

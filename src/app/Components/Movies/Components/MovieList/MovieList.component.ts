@@ -1,8 +1,10 @@
+//#region Local Imports
 import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MovieService } from '../../Services/Movie.service';
 import { Movie } from '../../Models/Movie.model';
 import { Genre, Genres } from '../../Models/Genre.model';
 import { ModalDirective } from 'angular-bootstrap-md';
+//#endregion
 
 @Component({
   selector: 'app-MovieList',

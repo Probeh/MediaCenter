@@ -27,7 +27,7 @@ import { ShoppingCartComponent } from './Components/ShoppingCart/ShoppingCart.co
     ShoppingCartModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
-      { path: "",             component: HomeComponent },
+      { path: "",             component: MoviesComponent },
       { path: "Home",         component: HomeComponent },
       { path: "Movies",       component: MoviesComponent },
       { path: "ShoppingCart", component: ShoppingCartComponent },
