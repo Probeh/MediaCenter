@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## 1. Install Node Packages
+## 1. Install Node Modules
 
 ![](https://github.com/YoniProbeh/MediaCenter/blob/master/src/img/install-min.gif?raw=true)
 
