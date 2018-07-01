@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![](https://github.com/YoniProbeh/MediaCenter/blob/master/src/img/serve-min.gif?raw=true)
 
-===================================================================================================
+=================================================================================
 
 ## Development server
 
